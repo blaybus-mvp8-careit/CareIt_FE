@@ -44,4 +44,4 @@ export default function HomePage() {
       <StyledTitle level={2}>돌봄잇</StyledTitle>
     </Container>
   )
-}
+
