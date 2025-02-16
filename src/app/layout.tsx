@@ -32,10 +32,12 @@ export default function RootLayout({
         <title>{metadata.title}</title>
         <meta name='description' content={metadata.description} />
       </head>
-      <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
+      <body
+        className={`${geistSans.variable} ${geistMono.variable} flex w-full justify-center antialiased`}
+      >
         <QueryClientProvider client={queryClient}>
           <ThemeProvider theme={theme}>
-            {children}
+            <div className='min-h-screen w-full max-w-md px-4 md:px-6'>{children}</div>
             <ReactQueryDevtools initialIsOpen={false} />
           </ThemeProvider>
         </QueryClientProvider>
