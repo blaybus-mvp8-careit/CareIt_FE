@@ -37,7 +37,7 @@ export default function RootLayout({
       >
         <QueryClientProvider client={queryClient}>
           <ThemeProvider theme={theme}>
-            <div className='min-h-screen w-full max-w-md px-4 md:px-6'>{children}</div>
+            <div className='min-h-screen w-full max-w-md'>{children}</div>
             <ReactQueryDevtools initialIsOpen={false} />
           </ThemeProvider>
         </QueryClientProvider>
