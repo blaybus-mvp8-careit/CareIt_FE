@@ -1,19 +1,22 @@
-import React, { JSX } from 'react';
-import { TitleProps } from 'antd/es/typography/Title';
-import { styled } from 'styled-components';
-import { Typography } from 'antd';
-
-
-export const StyledTitle = styled(Typography.Title)`
-  margin: 0 !important;
-`
-
+import React, { JSX } from 'react'
+import { TitleProps } from 'antd/es/typography/Title'
+import { styled } from 'styled-components'
+import { Typography } from 'antd'
 
 interface CustomTitleProps extends TitleProps {
-  children: React.ReactNode;
+  children: React.ReactNode
+  color?: string
 }
 
-export default function AntdTitle({ children, ...rest }: CustomTitleProps): JSX.Element {
-  // eslint-disable-next-line react/jsx-props-no-spreading
-  return <StyledTitle {...rest}>{children}</StyledTitle>
-};
+export const StyledTitle = styled(Typography.Title)<{ $customColor?: string }>`
+  margin: 0 !important;
+  color: ${({ $customColor }) => $customColor || 'inherit'} !important;
+`
+
+export default function AntdTitle({ children, color, ...rest }: CustomTitleProps): JSX.Element {
+  return (
+    <StyledTitle $customColor={color} {...rest}>
+      {children}
+    </StyledTitle>
+  )
+}

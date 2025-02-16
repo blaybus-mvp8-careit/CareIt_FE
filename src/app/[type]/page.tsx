@@ -9,8 +9,8 @@ import Image from 'next/image'
 import { AntdText, AntdTitle } from '@/components'
 
 const Container = styled.div`
-  width: 100vw;
-  height: 100vh;
+  width: 100%;
+  height: 100%;
   background: ${Colors.White};
   display: flex;
   flex-direction: column;

@@ -8,8 +8,8 @@ import { Button, Flex } from 'antd'
 import { useRouter } from 'next/navigation'
 
 const Container = styled.div`
-  width: 100vw;
-  height: 100vh;
+  width: 100%;
+  height: 100%;
   background: ${Colors.White};
   display: flex;
   flex-direction: column;
@@ -25,41 +25,41 @@ const StyledTitle = styled(AntdTitle)`
 `
 
 export default function SelectPage() {
-    const router = useRouter()
+  const router = useRouter()
 
-    const handleNavigate = (path: string) => {
-      //Todo - 로그인 토큰 체크 후 메인 페이지
-      router.push(path)
-    }
+  const handleNavigate = (path: string) => {
+    //Todo - 로그인 토큰 체크 후 메인 페이지
+    router.push(path)
+  }
 
-    return (
+  return (
     <Container>
-        <Image src='/main_logo.svg' alt='Main Logo' width={120} height={120} />
-        <StyledTitle level={2}>돌봄잇</StyledTitle>
-        <Flex vertical gap={30}>
-            <Button
-            style={{
-                background: Colors.VibrantTeal,
-                color: Colors.White,
-                width: '300px',
-                height: '60px',
-            }}
-            onClick={() => handleNavigate('/care')}
-            >
-            요양보호사 시작하기
-            </Button>
-            <Button
-            style={{
-                background: Colors.VividBlue,
-                color: Colors.White,
-                width: '300px',
-                height: '60px',
-            }}
-            onClick={() => handleNavigate('/center')}
-            >
-            센터 시작하기
-            </Button>
-        </Flex>
+      <Image src='/main_logo.svg' alt='Main Logo' width={120} height={120} />
+      <StyledTitle level={2}>돌봄잇</StyledTitle>
+      <Flex vertical gap={30}>
+        <Button
+          style={{
+            background: Colors.VibrantTeal,
+            color: Colors.White,
+            width: '300px',
+            height: '60px',
+          }}
+          onClick={() => handleNavigate('/care')}
+        >
+          요양보호사 시작하기
+        </Button>
+        <Button
+          style={{
+            background: Colors.VividBlue,
+            color: Colors.White,
+            width: '300px',
+            height: '60px',
+          }}
+          onClick={() => handleNavigate('/center')}
+        >
+          센터 시작하기
+        </Button>
+      </Flex>
     </Container>
-    )
+  )
 }

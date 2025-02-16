@@ -1,14 +1,22 @@
-import React, { JSX } from 'react';
+import React, { JSX } from 'react'
 import { Typography } from 'antd'
-import { TextProps } from 'antd/es/typography/Text';
-import { styled } from 'styled-components';
+import { TextProps } from 'antd/es/typography/Text'
+import { styled } from 'styled-components'
 
+interface CustomTextProps extends TextProps {
+  children: React.ReactNode
+  color?: string
+}
 
-export const StyledText = styled(Typography.Text)`
+export const StyledText = styled(Typography.Text)<{ $customColor?: string }>`
   margin: 0 !important;
+  color: ${({ $customColor }) => $customColor || 'inherit'} !important;
 `
 
-export default function AntdText(props: TextProps): JSX.Element {
-  // eslint-disable-next-line react/jsx-props-no-spreading
-  return <StyledText {...props} />
+export default function AntdText({ children, color, ...rest }: CustomTextProps): JSX.Element {
+  return (
+    <StyledText $customColor={color} {...rest}>
+      {children}
+    </StyledText>
+  )
 }

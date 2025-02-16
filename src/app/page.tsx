@@ -10,8 +10,8 @@ import { Colors } from '@/const'
 
 //Todo - 최상단에서 100%
 const Container = styled.div`
-  width: 100vw;
-  height: 100vh;
+  width: 100%;
+  height: 100%;
   background: ${Colors.VibrantTeal};
   display: flex;
   flex-direction: column;

@@ -4,6 +4,7 @@ export interface ColorType {
   MintGreen: string
   White: string
   VividBlue: string
+  LightGrey: string
 }
 
 export const Colors: ColorType = {
@@ -12,4 +13,5 @@ export const Colors: ColorType = {
   MintGreen: '#B7DAB0',
   White: '#FFFFFF',
   VividBlue: '#018ABE',
+  LightGrey: 'D9D9D9',
 }
