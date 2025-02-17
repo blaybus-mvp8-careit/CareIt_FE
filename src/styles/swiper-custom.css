@@ -1,0 +1,8 @@
+/* swiper-custom.css */
+.swiper-pagination-bullet {
+  background-color: #8d8c8c !important; /* 원하는 색상으로 변경 */
+}
+
+.swiper-pagination-bullet-active {
+  background-color: #d9d9d9 !important; /* 활성화된 도트 색상 */
+}
