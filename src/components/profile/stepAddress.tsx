@@ -1,12 +1,13 @@
-'use client'
-
 import { useFormContext } from 'react-hook-form'
 import DaumPostCode from 'react-daum-postcode'
 import Modal from 'react-modal'
 import { useState } from 'react'
-import { useSearchParams } from 'next/navigation'
 
-export default function StepAddress() {
+interface StepAddressProps {
+  type: string | null
+}
+
+export default function StepAddress({ type }: StepAddressProps) {
   const {
     register,
     setValue,
@@ -14,8 +15,6 @@ export default function StepAddress() {
     formState: { errors },
   } = useFormContext()
 
-  const searchParams = useSearchParams()
-  const type = searchParams.get('type')
   const [isPostCodeOpen, setIsPostCodeOpen] = useState(false)
   const address = watch('address')
 

@@ -1,10 +1,11 @@
 import Image from 'next/image'
 import Link from 'next/link'
-import { useSearchParams } from 'next/navigation'
 
-export default function StepComplete() {
-  const searchParams = useSearchParams()
-  const type = searchParams.get('type')
+interface StepCompleteProps {
+  type: string | null
+}
+
+export default function StepComplete({ type }: StepCompleteProps) {
   const buttonColor =
     type === 'care'
       ? 'bg-customGreen hover:bg-customLightGreen'

@@ -1,7 +1,10 @@
 import { useFormContext, useController } from 'react-hook-form'
-import { useSearchParams } from 'next/navigation'
 
-export default function StepCar() {
+interface StepCarProps {
+  type: string | null
+}
+
+export default function StepCar({ type }: StepCarProps) {
   const {
     control,
     formState: { errors },
@@ -15,8 +18,6 @@ export default function StepCar() {
     rules: { required: '차량 여부를 선택해주세요.' },
   })
 
-  const searchParams = useSearchParams()
-  const type = searchParams.get('type')
   const textColor = type === 'care' ? 'text-customGreen' : 'text-customBlue'
   const borderColor = type === 'care' ? 'border-customGreen' : 'border-customBlue'
 

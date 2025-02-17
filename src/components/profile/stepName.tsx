@@ -2,16 +2,17 @@
 
 import { useFormContext } from 'react-hook-form'
 import { useState } from 'react'
-import { useSearchParams } from 'next/navigation'
 
-export default function StepName() {
+interface StepNameProps {
+  type: string | null
+}
+
+export default function StepName({ type }: StepNameProps) {
   const {
     register,
     formState: { errors },
   } = useFormContext()
 
-  const searchParams = useSearchParams()
-  const type = searchParams.get('type')
   const [inputValue, setInputValue] = useState('')
   const maxLength = 20
 
@@ -27,7 +28,7 @@ export default function StepName() {
         <span className={`${textColor}`}>Q. </span>이름을 입력해 주세요.
         <span className={`${textColor} text-sm`}> (필수) </span>
       </h2>
-      <div className='border-buttonGray flex w-full justify-between rounded-xl border p-2 px-4'>
+      <div className='flex w-full justify-between rounded-xl border border-buttonGray p-2 px-4'>
         <input
           {...register('name', {
             required: '이름을 입력하세요',
@@ -41,7 +42,7 @@ export default function StepName() {
           value={inputValue}
           onChange={handleInputChange}
         />
-        <span className='text-buttonGray text-sm'>
+        <span className='text-sm text-buttonGray'>
           {inputValue.length}/{maxLength}
         </span>
       </div>

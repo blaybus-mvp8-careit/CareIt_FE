@@ -1,16 +1,10 @@
-'use client'
-
-import { useSearchParams } from 'next/navigation'
-
 interface ProgressBarProps {
   step: number
   totalSteps: number
+  type: string | null
 }
 
-export default function ProgressBar({ step, totalSteps }: ProgressBarProps) {
-  const searchParams = useSearchParams()
-  const type = searchParams.get('type')
-
+export default function ProgressBar({ step, totalSteps, type }: ProgressBarProps) {
   const buttonColor =
     type === 'care'
       ? 'bg-customGreen hover:bg-customLightGreen'

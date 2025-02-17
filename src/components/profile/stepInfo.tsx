@@ -1,13 +1,11 @@
 import Image from 'next/image'
-import { useSearchParams } from 'next/navigation'
 
 interface StepInfoProps {
   nextStep: () => void
+  type: string | null
 }
 
-export default function StepInfo({ nextStep }: StepInfoProps) {
-  const searchParams = useSearchParams()
-  const type = searchParams.get('type')
+export default function StepInfo({ nextStep, type }: StepInfoProps) {
   const buttonColor =
     type === 'care'
       ? 'bg-customGreen hover:bg-customLightGreen'

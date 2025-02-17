@@ -1,14 +1,15 @@
 import { useFormContext } from 'react-hook-form'
-import { useSearchParams } from 'next/navigation'
 
-export default function StepPhone() {
+interface StepPhoneProps {
+  type: string | null
+}
+
+export default function StepPhone({ type }: StepPhoneProps) {
   const {
     register,
     formState: { errors },
   } = useFormContext()
 
-  const searchParams = useSearchParams()
-  const type = searchParams.get('type')
   const textColor = type === 'care' ? 'text-customGreen' : 'text-customBlue'
 
   return (
@@ -27,7 +28,7 @@ export default function StepPhone() {
         })}
         type='text'
         placeholder='-없이 숫자만 입력해 주세요.'
-        className='border-buttonGray flex w-full justify-between rounded-xl border p-2 px-4'
+        className='flex w-full justify-between rounded-xl border border-buttonGray p-2 px-4'
       />
       {errors['phone-number'] && (
         <p className='p-2 text-sm text-red-500'>{`* ${errors['phone-number'].message}`}</p>

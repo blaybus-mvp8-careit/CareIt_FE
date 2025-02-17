@@ -1,4 +1,3 @@
-import { useSearchParams } from 'next/navigation'
 import StepInfo from '@/components/profile/stepInfo'
 import StepName from '@/components/profile/stepName'
 import StepPhone from '@/components/profile/stepPhone'
@@ -12,27 +11,25 @@ import StepCareer from '@/components/profile/stepCareer'
 interface StepFormProps {
   step: number
   nextStep: () => void
+  type: string | null
 }
 
-export default function StepForm({ step, nextStep }: StepFormProps) {
-  const searchParams = useSearchParams()
-  const type = searchParams.get('type')
-
+export default function StepForm({ step, nextStep, type }: StepFormProps) {
   // 프로필 등록 단계별 입력 폼 지정 함수(요양 보호사 version)
   const renderCareStepForm = () => {
     switch (step) {
       case 1:
-        return <StepInfo nextStep={nextStep} />
+        return <StepInfo nextStep={nextStep} type={type} />
       case 2:
-        return <StepName />
+        return <StepName type={type} />
       case 3:
-        return <StepPhone />
+        return <StepPhone type={type} />
       case 4:
         return <StepCertificate />
       case 5:
-        return <StepAddress />
+        return <StepAddress type={type} />
       case 6:
-        return <StepCar />
+        return <StepCar type={type} />
       case 7:
         return <StepEdu />
       case 8:
@@ -48,15 +45,15 @@ export default function StepForm({ step, nextStep }: StepFormProps) {
   const renderCenterStepForm = () => {
     switch (step) {
       case 1:
-        return <StepInfo nextStep={nextStep} />
+        return <StepInfo nextStep={nextStep} type={type} />
       case 2:
-        return <StepName />
+        return <StepName type={type} />
       case 3:
-        return <StepPhone />
+        return <StepPhone type={type} />
       case 4:
-        return <StepAddress />
+        return <StepAddress type={type} />
       case 5:
-        return <StepCar />
+        return <StepCar type={type} />
       default:
         return <div>완료</div>
     }
