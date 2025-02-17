@@ -26,7 +26,7 @@ function MainPage() {
 
   return (
     <div className='mb-24 w-full'>
-      <Header />
+      <Header type='user' />
       <WorkCondition />
       <BannerSwiper />
       <MatchingRequestCarousel />
